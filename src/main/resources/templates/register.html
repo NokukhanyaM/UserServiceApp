@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+
+</head>
+<body >
+<div class="container register-container">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card register-card">
+                <h3 class="text-center mb-4">📝 Register</h3>
+
+                <form th:action="@{/api/users/register}" method="post">
+                    <div class="mb-3">
+                        <label class="form-label">Email Address</label>
+                        <input type="email" name="email" class="form-control" placeholder="name@example.com" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Username</label>
+                        <input type="username" name="username" class="form-control" placeholder="UserName" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Password</label>
+                        <input type="password" name="password" class="form-control" placeholder="••••••••" required>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Role</label>
+                        <select name="role" class="form-select">
+                            <option value="USER">User</option>
+                            <option value="ADMIN">Admin</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary w-100">Register</button>
+                    <p class="text-center mt-3">Already have an account?
+                        <a th:href="@{http://localhost:8081/api/auth/login}" class="auth-link">Login</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script th:inline="javascript">
+    let errorMessage = [[${error}]];
+
+    if (errorMessage) {
+        Toastify({
+            text: errorMessage,
+            duration: 3000,
+            gravity: "top",
+            position: "right",
+            backgroundColor: "linear-gradient(to right, #ff5f6d, #ffc371)",
+        }).showToast();
+    }
+</script>
+
+</body>
+</html>

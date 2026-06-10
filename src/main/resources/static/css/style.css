@@ -1,0 +1,68 @@
+/* General Page Styling */
+body {
+    background-color: #f8f9fa; /* Matches Bootstrap's bg-light */
+    height: 100vh;
+    display: flex;
+    align-items: center; /* Vertically centers the form */
+}
+
+.register-container {
+    width: 100%;
+}
+
+/* The Card Styling */
+.register-card {
+    padding: 2rem;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+}
+
+/* Form Elements */
+.form-label {
+    font-weight: 500;
+    color: #495057;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #0d6efd;
+    box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.15);
+}
+
+/* Button & Links */
+.btn-primary {
+    padding: 0.6rem;
+    font-weight: 600;
+    border-radius: 8px;
+}
+
+.auth-link {
+    text-decoration: none;
+    font-weight: 700;
+    color: #0d6efd;
+}
+
+.auth-link:hover {
+    text-decoration: underline;
+}
+
+/* Progress Bar Hack */
+
+.toastify::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    animation: progress-countdown 10s linear forwards;
+}
+
+@keyframes progress-countdown {
+    from { width: 100%; }
+    to { width: 0%; }
+}
+  to { width: 0%; }
+}
