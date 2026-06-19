@@ -36,13 +36,21 @@ public class UserController {
     public String register(@ModelAttribute RegistrationDTO registerRequest, RedirectAttributes redirectAttributes) {
 
         try {
-            userService.register(registerRequest);
+             com.example.UserServiceApp.model.User user = userService.register(registerRequest);
+
+             if(user != null){
+                 System.out.println("Successfully Registered: {} "+ user.getUsername());
+             }else{
+                 System.out.println("User Registration Failed");
+             }
+
 
             return "redirect:https://authserviceapp.onrender.com/api/auth/login";
 
         } catch (Exception e) {
             // Use addFlashAttribute so it survives the redirect back to the register page
             redirectAttributes.addFlashAttribute("error", "Email already exists or invalid data!");
+            System.out.println("User Registration Failed {}"+ e.getMessage());
             return "redirect:/api/users/register";
         }
     }
