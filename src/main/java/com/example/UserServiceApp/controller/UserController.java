@@ -38,7 +38,7 @@ public class UserController {
         try {
             userService.register(registerRequest);
 
-            return "redirect:http://localhost:8081/api/auth/login";
+            return "redirect:https://authserviceapp.onrender.com/api/auth/login";
 
         } catch (Exception e) {
             // Use addFlashAttribute so it survives the redirect back to the register page
